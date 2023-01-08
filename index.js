@@ -9,6 +9,7 @@ module.exports = function unpack (source, opts) {
     ? source
     : acorn.parse(source, { ecmaVersion: 2019 })
 
+  console.log('ast: ', ast)
   if (opts && opts.source) {
     source = opts.source
   }

@@ -1,4 +1,4 @@
-var path = require('path')
-var dep = require('./dep')
+const path = require('path')
+const dep = require('./dep')
 
 dep.test(path.join('whatever', 'lol'))

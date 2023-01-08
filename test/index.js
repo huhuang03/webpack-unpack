@@ -7,14 +7,17 @@ function buildFixture (name, cb) {
   const config = path.join(__dirname, 'fixtures', name, 'webpack.config.js')
   webpack(require(config)).run(function (err, stats) {
     if (err) return cb(err)
+    // console.log('stats: ', stats)
     cb(null, stats.compilation.assets['bundle.js'].source(), stats.compilation.assets)
   })
 }
 
 test('commonjs modules', function (t) {
+  // t is the test.
   t.plan(4)
   buildFixture('commonjs', function (err, bundle) {
     t.ifError(err)
+    // looks like modules is null?
     const modules = unpack(bundle)
     t.ok(modules)
     t.equal(modules.length, 4)
