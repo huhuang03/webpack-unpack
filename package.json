@@ -15,9 +15,9 @@
     "simple-concat": "^1.0.0"
   },
   "devDependencies": {
+    "@types/jest": "^29.2.5",
+    "jest": "^29.3.1",
     "standard": "^16.0.3",
-    "tap-spec": "^5.0.0",
-    "tape": "^5.0.0",
     "webpack": "^5.48.0"
   },
   "homepage": "https://github.com/goto-bus-stop/webpack-unpack",
@@ -36,10 +36,18 @@
     "type": "git",
     "url": "https://github.com/goto-bus-stop/webpack-unpack.git"
   },
+  "jest": {
+    "testPathIgnorePatterns": [
+      "__tests__/fixtures"
+    ]
+  },
   "scripts": {
-    "test": "standard && node test | tap-spec"
+    "test": "standard && jest"
   },
   "standard": {
+    "env": [
+      "jest"
+    ],
     "ignore": [
       "test/fixtures"
     ]
